@@ -1,0 +1,122 @@
+// About.scss - Styles for the About component
+
+.about-container {
+  // Header Section
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .about-avatar {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1.5rem auto;
+      background-color: #1976d2; // primary.main
+      font-size: 4rem;
+    }
+
+    .about-subtitle {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // Bio and Skills Cards
+  .bio-card {
+    height: 100%;
+
+    .bio-content {
+      padding: 2rem;
+    }
+  }
+
+  .skills-card {
+    height: 100%;
+
+    .skills-content {
+      padding: 2rem;
+
+      .skills-list {
+        margin-top: 1.5rem;
+
+        .skill-item {
+          margin-bottom: 1.5rem;
+
+          .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+          }
+
+          .skill-progress {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #f5f5f5; // grey.200
+
+            .MuiLinearProgress-bar {
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Experience Section
+  .experience-section {
+    margin-top: 3rem;
+
+    .experience-title {
+      margin-bottom: 2rem;
+    }
+
+    .experience-card {
+      height: 100%;
+
+      .experience-content {
+        padding: 1.5rem;
+        text-align: center;
+
+        .experience-icon {
+          margin-bottom: 1rem;
+
+          .icon-work {
+            color: #1976d2; // primary.main
+          }
+
+          .icon-school {
+            color: #9c27b0; // secondary.main
+          }
+        }
+
+        .experience-description {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  // Interests Section
+  .interests-section {
+    margin-top: 3rem;
+    text-align: center;
+
+    .interests-title {
+      margin-bottom: 2rem;
+    }
+
+    .interests-card {
+      .interests-content {
+        padding: 2rem;
+
+        .interests-chips {
+          gap: 0.5rem;
+
+          .interest-chip {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

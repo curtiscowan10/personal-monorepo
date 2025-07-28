@@ -1,0 +1,177 @@
+import React from 'react';
+import {
+  Box,
+  Typography,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Container,
+  Avatar,
+  Chip,
+  Stack,
+} from '@mui/material';
+import {
+  Brush as DesignIcon,
+  Code as CodeIcon,
+  Speed as SpeedIcon,
+  ArrowForward as ArrowForwardIcon,
+} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import './Home.scss';
+
+const Home = () => {
+  const skills = [
+    'React', 'JavaScript', 'Node.js', 'Material-UI', 
+    'SCSS', 'Vite', 'NX', 'Git', 'Responsive Design'
+  ];
+
+  const features = [
+    {
+      icon: <CodeIcon className="feature-icon-code" />,
+      title: 'Clean Code',
+      description: 'Writing maintainable, scalable, and well-documented code following best practices.',
+    },
+    {
+      icon: <DesignIcon className="feature-icon-design" />,
+      title: 'Modern Design',
+      description: 'Creating beautiful, intuitive user interfaces with attention to detail and user experience.',
+    },
+    {
+      icon: <SpeedIcon className="feature-icon-speed" />,
+      title: 'Performance',
+      description: 'Optimizing applications for speed, accessibility, and cross-browser compatibility.',
+    },
+  ];
+
+  return (
+    <Container maxWidth="lg" className="home-container">
+      {/* Hero Section */}
+      <Box className="hero-section">
+        <Avatar className="hero-avatar">
+          P
+        </Avatar>
+        
+        <Typography
+          variant="h2"
+          component="h1"
+          className="custom-title"
+          gutterBottom
+        >
+          Welcome to My Portfolio
+        </Typography>
+        
+        <Typography
+          variant="h5"
+          className="hero-subtitle"
+        >
+          Full-Stack Developer passionate about creating exceptional web experiences
+          with modern technologies and clean, efficient code.
+        </Typography>
+
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          className="hero-buttons"
+        >
+          <Button
+            variant="contained"
+            size="large"
+            className="custom-primary"
+            component={Link}
+            to="/projects"
+            endIcon={<ArrowForwardIcon />}
+          >
+            View My Work
+          </Button>
+          <Button
+            variant="outlined"
+            size="large"
+            component={Link}
+            to="/contact"
+          >
+            Get In Touch
+          </Button>
+        </Stack>
+
+        <Box className="skills-section">
+          <Typography variant="h6" gutterBottom>
+            Technologies I Work With
+          </Typography>
+          <Stack
+            direction="row"
+            spacing={1}
+            justifyContent="center"
+            flexWrap="wrap"
+            className="skills-container"
+          >
+            {skills.map((skill) => (
+              <Chip
+                key={skill}
+                label={skill}
+                variant="outlined"
+                color="primary"
+                className="skill-chip"
+              />
+            ))}
+          </Stack>
+        </Box>
+      </Box>
+
+      {/* Features Section */}
+      <Box className="features-section">
+        <Typography
+          variant="h3"
+          component="h2"
+          textAlign="center"
+          gutterBottom
+          className="features-title"
+        >
+          What I Bring to the Table
+        </Typography>
+
+        <Grid container spacing={4}>
+          {features.map((feature, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <Card className="feature-card">
+                <CardContent>
+                  <Box className="feature-icon">
+                    {feature.icon}
+                  </Box>
+                  <Typography variant="h5" component="h3" gutterBottom>
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary">
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      {/* Call to Action */}
+      <Box className="cta-section">
+        <Typography variant="h4" component="h2" gutterBottom>
+          Ready to Start Your Next Project?
+        </Typography>
+        <Typography variant="h6" className="cta-subtitle">
+          Let's work together to bring your ideas to life
+        </Typography>
+        <Button
+          variant="contained"
+          size="large"
+          component={Link}
+          to="/contact"
+          className="cta-button"
+        >
+          Start a Conversation
+        </Button>
+      </Box>
+    </Container>
+  );
+};
+
+export default Home;
