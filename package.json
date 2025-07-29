@@ -4,7 +4,22 @@
   "description": "NX monorepo for all things Curtis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky",
+    "lint": "nx run-many -t lint",
+    "lint:fix": "nx run-many -t lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "nx run-many -t test",
+    "test:all": "nx run-many -t test --all"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",
@@ -43,8 +58,10 @@
     "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "husky": "^9.1.7",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
+    "lint-staged": "^16.1.2",
     "nx": "^21.3.8",
     "prettier": "^2.6.2",
     "sass": "^1.55.0",
