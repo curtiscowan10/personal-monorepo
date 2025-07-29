@@ -1,7 +1,7 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -14,11 +14,8 @@ export default defineConfig(() => ({
     port: 4200,
     host: 'localhost',
   },
-  plugins: [react(), nxCopyAssetsPlugin(['*.md'])],
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+  plugins: [react(), nxViteTsPaths()],
+  
   build: {
     outDir: '../../dist/apps/portfolio',
     emptyOutDir: true,
