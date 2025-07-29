@@ -20,13 +20,19 @@ import './Projects.scss';
 
 const Projects = ({ projects, featuredProjects, otherProjects }) => {
   const ProjectCard = ({ project, featured = false }) => (
-    <Card className={`project-card ${featured ? 'featured' : ''}`}>
-      <CardMedia component="div" className="project-media">
-        <CodeIcon className="media-icon" />
+    <Card
+      className={`project-card ${featured ? 'project-card--featured' : ''}`}
+    >
+      <CardMedia component="div" className="project-card__media">
+        <CodeIcon className="project-card__media-icon" />
       </CardMedia>
-      <CardContent className="project-content">
-        <Box className="project-header">
-          <Typography variant="h6" component="h3" className="project-title">
+      <CardContent className="project-card__content">
+        <Box className="project-card__header">
+          <Typography
+            variant="h6"
+            component="h3"
+            className="project-card__title"
+          >
             {project.title}
           </Typography>
           {featured && (
@@ -34,7 +40,7 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
               label="Featured"
               color="primary"
               size="small"
-              className="featured-chip"
+              className="project-card__featured-chip"
             />
           )}
         </Box>
@@ -43,7 +49,7 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
           variant="body2"
           color="text.secondary"
           paragraph
-          className="project-description"
+          className="project-card__description"
         >
           {project.description}
         </Typography>
@@ -52,7 +58,7 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
           direction="row"
           spacing={1}
           flexWrap="wrap"
-          className="tech-stack"
+          className="project-card__tech-stack"
         >
           {project.technologies.map((tech) => (
             <Chip
@@ -60,12 +66,12 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
               label={tech}
               size="small"
               variant="outlined"
-              className="tech-chip"
+              className="project-card__tech-stack-chip"
             />
           ))}
         </Stack>
 
-        <Box className="project-actions">
+        <Box className="project-card__actions">
           <Button
             variant="outlined"
             size="small"
@@ -92,9 +98,9 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
   );
 
   return (
-    <Container maxWidth="lg" className="projects-container">
+    <Container maxWidth="lg" className="projects">
       {/* Header Section */}
-      <Box className="projects-header">
+      <Box className="projects__header">
         <Typography
           variant="h2"
           component="h1"
@@ -103,19 +109,19 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
         >
           My Projects
         </Typography>
-        <Typography variant="h5" className="projects-subtitle">
+        <Typography variant="h5" className="projects__subtitle">
           A showcase of my recent work and personal projects that demonstrate my
           skills in modern web development technologies.
         </Typography>
       </Box>
 
       {/* Featured Projects */}
-      <Box className="featured-section">
+      <Box className="projects__featured">
         <Typography
           variant="h3"
           component="h2"
           gutterBottom
-          className="featured-title"
+          className="projects__featured-title"
         >
           Featured Projects
         </Typography>
@@ -134,7 +140,7 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
           variant="h3"
           component="h2"
           gutterBottom
-          className="other-projects-title"
+          className="projects__other-title"
         >
           Other Projects
         </Typography>
@@ -148,14 +154,14 @@ const Projects = ({ projects, featuredProjects, otherProjects }) => {
       </Box>
 
       {/* Call to Action */}
-      <Box className="projects-cta">
+      <Box className="projects__cta">
         <Typography variant="h4" component="h2" gutterBottom>
           Interested in Working Together?
         </Typography>
         <Typography
           variant="h6"
           color="text.secondary"
-          className="cta-subtitle"
+          className="projects__cta-subtitle"
         >
           I'm always open to discussing new opportunities and exciting projects.
         </Typography>

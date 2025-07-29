@@ -17,17 +17,17 @@ import './About.scss';
 const About = ({ skills, experiences, interests }) => {
   const getExperienceIcon = (type) => {
     return type === 'work' ? (
-      <WorkIcon className="icon-work" />
+      <WorkIcon className="about__experience-card-icon about__experience-card-icon--work" />
     ) : (
-      <SchoolIcon className="icon-school" />
+      <SchoolIcon className="about__experience-card-icon about__experience-card-icon--school" />
     );
   };
 
   return (
-    <Container maxWidth="lg" className="about-container">
+    <Container maxWidth="lg" className="about">
       {/* Header Section */}
-      <Box className="about-header">
-        <Avatar className="about-avatar">A</Avatar>
+      <Box className="about__header">
+        <Avatar className="about__avatar">A</Avatar>
         <Typography
           variant="h2"
           component="h1"
@@ -36,7 +36,7 @@ const About = ({ skills, experiences, interests }) => {
         >
           About Me
         </Typography>
-        <Typography variant="h5" className="about-subtitle">
+        <Typography variant="h5" className="about__subtitle">
           I'm a passionate developer who loves creating beautiful, functional
           web applications that solve real-world problems and provide
           exceptional user experiences.
@@ -46,8 +46,8 @@ const About = ({ skills, experiences, interests }) => {
       <Grid container spacing={4}>
         {/* Bio Section */}
         <Grid item xs={12} md={6}>
-          <Card className="bio-card">
-            <CardContent className="bio-content">
+          <Card className="about__bio-card">
+            <CardContent className="about__bio-card-content">
               <Typography variant="h4" gutterBottom>
                 My Story
               </Typography>
@@ -74,15 +74,15 @@ const About = ({ skills, experiences, interests }) => {
 
         {/* Skills Section */}
         <Grid item xs={12} md={6}>
-          <Card className="skills-card">
-            <CardContent className="skills-content">
+          <Card className="about__skills-card">
+            <CardContent className="about__skills-card-content">
               <Typography variant="h4" gutterBottom>
                 Technical Skills
               </Typography>
-              <Box className="skills-list">
+              <Box className="about__skills-card-list">
                 {skills.map((skill) => (
-                  <Box key={skill.name} className="skill-item">
-                    <Box className="skill-header">
+                  <Box key={skill.name} className="about__skill-item">
+                    <Box className="about__skill-item-header">
                       <Typography variant="body1" fontWeight="medium">
                         {skill.name}
                       </Typography>
@@ -93,7 +93,7 @@ const About = ({ skills, experiences, interests }) => {
                     <LinearProgress
                       variant="determinate"
                       value={skill.level}
-                      className="skill-progress"
+                      className="about__skill-item-progress"
                     />
                   </Box>
                 ))}
@@ -104,22 +104,22 @@ const About = ({ skills, experiences, interests }) => {
       </Grid>
 
       {/* Experience Timeline */}
-      <Box className="experience-section">
+      <Box className="about__experience">
         <Typography
           variant="h3"
           component="h2"
           textAlign="center"
           gutterBottom
-          className="experience-title"
+          className="about__experience-title"
         >
           Experience & Education
         </Typography>
         <Grid container spacing={3}>
           {experiences.map((exp, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <Card className="experience-card">
-                <CardContent className="experience-content">
-                  <Box className="experience-icon">
+              <Card className="about__experience-card">
+                <CardContent className="about__experience-card-content">
+                  <Box className="about__experience-card-icon">
                     {getExperienceIcon(exp.type)}
                   </Box>
                   <Typography variant="h6" gutterBottom>
@@ -137,7 +137,7 @@ const About = ({ skills, experiences, interests }) => {
                   </Typography>
                   <Typography
                     variant="body2"
-                    className="experience-description"
+                    className="about__experience-card-description"
                   >
                     {exp.description}
                   </Typography>
@@ -149,23 +149,23 @@ const About = ({ skills, experiences, interests }) => {
       </Box>
 
       {/* Interests Section */}
-      <Box className="interests-section">
+      <Box className="about__interests">
         <Typography
           variant="h3"
           component="h2"
           gutterBottom
-          className="interests-title"
+          className="about__interests-title"
         >
           Interests & Hobbies
         </Typography>
-        <Card className="interests-card">
-          <CardContent className="interests-content">
+        <Card className="about__interests-card">
+          <CardContent className="about__interests-card-content">
             <Stack
               direction="row"
               spacing={1}
               justifyContent="center"
               flexWrap="wrap"
-              className="interests-chips"
+              className="about__interests-card-chips"
             >
               {interests.map((interest) => (
                 <Chip
@@ -173,7 +173,7 @@ const About = ({ skills, experiences, interests }) => {
                   label={interest}
                   variant="outlined"
                   color="secondary"
-                  className="interest-chip"
+                  className="about__interests-card-chip"
                 />
               ))}
             </Stack>

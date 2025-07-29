@@ -17,10 +17,10 @@ import './Home.scss';
 
 const Home = ({ skills, features }) => {
   return (
-    <Container maxWidth="lg" className="home-container">
+    <Container maxWidth="lg" className="home">
       {/* Hero Section */}
-      <Box className="hero-section">
-        <Avatar className="hero-avatar">P</Avatar>
+      <Box className="home__hero">
+        <Avatar className="home__hero-avatar">P</Avatar>
 
         <Typography
           variant="h2"
@@ -31,7 +31,7 @@ const Home = ({ skills, features }) => {
           Welcome to My Portfolio
         </Typography>
 
-        <Typography variant="h5" className="hero-subtitle">
+        <Typography variant="h5" className="home__hero-subtitle">
           Full-Stack Developer passionate about creating exceptional web
           experiences with modern technologies and clean, efficient code.
         </Typography>
@@ -40,7 +40,7 @@ const Home = ({ skills, features }) => {
           direction="row"
           spacing={2}
           justifyContent="center"
-          className="hero-buttons"
+          className="home__hero-buttons"
         >
           <Button
             variant="contained"
@@ -62,7 +62,7 @@ const Home = ({ skills, features }) => {
           </Button>
         </Stack>
 
-        <Box className="skills-section">
+        <Box className="home__skills">
           <Typography variant="h6" gutterBottom>
             Technologies I Work With
           </Typography>
@@ -71,7 +71,7 @@ const Home = ({ skills, features }) => {
             spacing={1}
             justifyContent="center"
             flexWrap="wrap"
-            className="skills-container"
+            className="home__skills-container"
           >
             {skills.map((skill) => (
               <Chip
@@ -79,7 +79,7 @@ const Home = ({ skills, features }) => {
                 label={skill}
                 variant="outlined"
                 color="primary"
-                className="skill-chip"
+                className="home__skills-chip"
               />
             ))}
           </Stack>
@@ -87,13 +87,13 @@ const Home = ({ skills, features }) => {
       </Box>
 
       {/* Features Section */}
-      <Box className="features-section">
+      <Box className="home__features">
         <Typography
           variant="h3"
           component="h2"
           textAlign="center"
           gutterBottom
-          className="features-title"
+          className="home__features-title"
         >
           What I Bring to the Table
         </Typography>
@@ -101,9 +101,11 @@ const Home = ({ skills, features }) => {
         <Grid container spacing={4}>
           {features.map((feature, index) => (
             <Grid item xs={12} md={4} key={index}>
-              <Card className="feature-card">
-                <CardContent>
-                  <Box className="feature-icon">{feature.icon}</Box>
+              <Card className="home__feature-card">
+                <CardContent className="home__feature-card-content">
+                  <Box className="home__feature-card-icon home__feature-card-icon--code">
+                    {feature.icon}
+                  </Box>
                   <Typography variant="h5" component="h3" gutterBottom>
                     {feature.title}
                   </Typography>
@@ -118,11 +120,11 @@ const Home = ({ skills, features }) => {
       </Box>
 
       {/* Call to Action */}
-      <Box className="cta-section">
+      <Box className="home__cta">
         <Typography variant="h4" component="h2" gutterBottom>
           Ready to Start Your Next Project?
         </Typography>
-        <Typography variant="h6" className="cta-subtitle">
+        <Typography variant="h6" className="home__cta-subtitle">
           Let's work together to bring your ideas to life
         </Typography>
         <Button
@@ -130,7 +132,7 @@ const Home = ({ skills, features }) => {
           size="large"
           component={Link}
           to="/contact"
-          className="cta-button"
+          className="home__cta-button"
         >
           Start a Conversation
         </Button>

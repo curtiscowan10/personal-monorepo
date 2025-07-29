@@ -1,0 +1,102 @@
+// index.scss - Main styles entry point
+
+// Import variables and mixins first
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: $color-primary;
+  background-color: $color-white;
+}
+
+// Global utility classes following BEM-like naming
+.u-text-center {
+  @include text-center;
+}
+
+.u-text-truncate {
+  @include text-truncate;
+}
+
+.u-text-gradient {
+  @include text-gradient;
+}
+
+.u-fade-in {
+  @include fade-in;
+}
+
+.u-slide-up {
+  @include slide-up;
+}
+
+// Global component classes
+.c-container {
+  @include container;
+}
+
+.c-section {
+  @include section-spacing;
+}
+
+.c-card {
+  @include card;
+
+  &--hover {
+    @include card-hover;
+  }
+
+  &__content {
+    @include card-content;
+  }
+}
+
+.c-button {
+  @include button-base;
+
+  &--primary {
+    @include button-primary;
+  }
+
+  &--secondary {
+    @include button-secondary;
+  }
+
+  &--outline {
+    @include button-outline;
+  }
+}
+
+.c-form {
+  &__input {
+    @include form-input;
+  }
+
+  &__label {
+    @include form-label;
+  }
+}
+
+.c-grid {
+  &--responsive {
+    @include responsive-grid;
+  }
+
+  &--2-col {
+    @include responsive-grid(1, 2, 2);
+  }
+
+  &--3-col {
+    @include responsive-grid(1, 2, 3);
+  }
+}

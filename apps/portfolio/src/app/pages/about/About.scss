@@ -1,121 +1,137 @@
-// About.scss - Styles for the About component
+// About.scss - Styles for the About component using BEM methodology
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.about-container {
-  // Header Section
-  .about-header {
-    text-align: center;
-    margin-bottom: 3rem;
+// About Page Block
+.about {
+  // Header Element
+  &__header {
+    @include text-center;
+    margin-bottom: $spacing-xl;
+  }
 
-    .about-avatar {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 1.5rem auto;
-      background-color: #1976d2; // primary.main
-      font-size: 4rem;
-    }
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto $spacing-md auto;
+    background-color: $color-accent;
+    font-size: $font-size-4xl;
+    border-radius: $border-radius-full;
+    @include flex-center;
+  }
 
-    .about-subtitle {
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+  &__subtitle {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Bio Card Element
+  &__bio-card {
+    @include card;
+    height: 100%;
+
+    &-content {
+      @include card-content;
     }
   }
 
-  // Bio and Skills Cards
-  .bio-card {
+  // Skills Card Element
+  &__skills-card {
+    @include card;
     height: 100%;
 
-    .bio-content {
-      padding: 2rem;
+    &-content {
+      @include card-content;
+    }
+
+    &-list {
+      margin-top: $spacing-md;
     }
   }
 
-  .skills-card {
-    height: 100%;
+  // Skill Item Element
+  &__skill-item {
+    margin-bottom: $spacing-md;
 
-    .skills-content {
-      padding: 2rem;
+    &-header {
+      @include flex-between;
+      margin-bottom: $spacing-xs;
+    }
 
-      .skills-list {
-        margin-top: 1.5rem;
+    &-progress {
+      height: 8px;
+      border-radius: $border-radius-sm;
+      background-color: $color-gray-100;
 
-        .skill-item {
-          margin-bottom: 1.5rem;
-
-          .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-          }
-
-          .skill-progress {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #f5f5f5; // grey.200
-
-            .MuiLinearProgress-bar {
-              border-radius: 4px;
-            }
-          }
-        }
+      .MuiLinearProgress-bar {
+        border-radius: $border-radius-sm;
       }
     }
   }
 
-  // Experience Section
-  .experience-section {
-    margin-top: 3rem;
+  // Experience Section Element
+  &__experience {
+    margin-top: $spacing-xl;
 
-    .experience-title {
-      margin-bottom: 2rem;
+    &-title {
+      margin-bottom: $spacing-lg;
     }
 
-    .experience-card {
+    &-card {
+      @include card;
+      @include card-hover;
       height: 100%;
 
-      .experience-content {
-        padding: 1.5rem;
-        text-align: center;
+      &-content {
+        @include text-center;
+        @include card-content;
+      }
 
-        .experience-icon {
-          margin-bottom: 1rem;
+      &-icon {
+        margin-bottom: $spacing-sm;
+        font-size: $font-size-3xl;
 
-          .icon-work {
-            color: #1976d2; // primary.main
-          }
-
-          .icon-school {
-            color: #9c27b0; // secondary.main
-          }
+        &--work {
+          color: $color-accent;
         }
 
-        .experience-description {
-          margin-top: 1rem;
+        &--school {
+          color: #9c27b0;
         }
+      }
+
+      &-description {
+        margin-top: $spacing-sm;
       }
     }
   }
 
-  // Interests Section
-  .interests-section {
-    margin-top: 3rem;
-    text-align: center;
+  // Interests Section Element
+  &__interests {
+    margin-top: $spacing-xl;
+    @include text-center;
 
-    .interests-title {
-      margin-bottom: 2rem;
+    &-title {
+      margin-bottom: $spacing-lg;
     }
 
-    .interests-card {
-      .interests-content {
-        padding: 2rem;
+    &-card {
+      @include card;
 
-        .interests-chips {
-          gap: 0.5rem;
+      &-content {
+        @include card-content;
+      }
 
-          .interest-chip {
-            margin-bottom: 0.5rem;
-          }
-        }
+      &-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-xs;
+        justify-content: center;
+      }
+
+      &-chip {
+        margin-bottom: $spacing-xs;
       }
     }
   }

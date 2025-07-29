@@ -1,106 +1,116 @@
-// Home.scss - Styles for the Home component
+// Home.scss - Styles for the Home component using BEM methodology
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use 'sass:color';
 
-.home-container {
-  // Hero Section
-  .hero-section {
-    text-align: center;
-    padding: 6rem 0;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-    border-radius: 8px;
-    margin-bottom: 3rem;
+// Home Page Block
+.home {
+  // Hero Section Element
+  &__hero {
+    @include hero-section;
 
-    @media (max-width: 768px) {
-      padding: 3rem 0;
+    @include mobile {
+      padding: $spacing-xl 0;
+    }
+  }
+
+  &__hero-avatar {
+    @include hero-avatar;
+  }
+
+  &__hero-subtitle {
+    margin-bottom: $spacing-lg;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__hero-buttons {
+    margin-bottom: $spacing-lg;
+  }
+
+  // Skills Section Element
+  &__skills {
+    margin-top: $spacing-lg;
+
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+      justify-content: center;
     }
 
-    .hero-avatar {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 1.5rem auto;
-      background-color: #1976d2; // primary.main
-      font-size: 3rem;
+    &-chip {
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  // Features Section Element
+  &__features {
+    @include section-spacing;
+
+    &-title {
+      @include text-center;
+      margin-bottom: $spacing-xl;
+    }
+  }
+
+  // Feature Card Element
+  &__feature-card {
+    @include card;
+    @include card-hover;
+    height: 100%;
+    @include text-center;
+
+    &-content {
+      @include card-content;
     }
 
-    .hero-subtitle {
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    &-icon {
+      margin-bottom: $spacing-sm;
+      font-size: 2.5rem;
 
-    .hero-buttons {
-      margin-bottom: 2rem;
-    }
+      // Icon Modifiers
+      &--code {
+        color: $color-accent;
+      }
 
-    .skills-section {
-      margin-top: 2rem;
+      &--design {
+        color: #9c27b0;
+      }
 
-      .skills-container {
-        gap: 0.5rem;
-
-        .skill-chip {
-          margin-bottom: 0.5rem;
-        }
+      &--speed {
+        color: $color-accent;
       }
     }
   }
 
-  // Features Section
-  .features-section {
-    padding: 3rem 0;
+  // Call to Action Section Element
+  &__cta {
+    background: linear-gradient(
+      45deg,
+      $color-accent 30%,
+      color.adjust($color-secondary, $lightness: 20%) 90%
+    );
+    border-radius: $border-radius-md;
+    color: $color-white;
+    margin-top: $spacing-xl;
+    @include text-center;
+    @include section-spacing;
 
-    .features-title {
-      margin-bottom: 3rem;
-    }
-
-    .feature-card {
-      height: 100%;
-      text-align: center;
-      padding: 1.5rem;
-
-      .feature-icon {
-        margin-bottom: 1rem;
-      }
-    }
-  }
-
-  // Call to Action Section
-  .cta-section {
-    text-align: center;
-    padding: 3rem 0;
-    background: linear-gradient(45deg, #1976d2 30%, #42a5f5 90%);
-    border-radius: 8px;
-    color: white;
-    margin-top: 3rem;
-
-    .cta-subtitle {
-      margin-bottom: 1.5rem;
+    &-subtitle {
+      margin-bottom: $spacing-md;
       opacity: 0.9;
     }
 
-    .cta-button {
-      background-color: white;
-      color: #1976d2;
+    &-button {
+      @include button-base;
+      background-color: $color-white;
+      color: $color-accent;
 
       &:hover {
-        background-color: #f5f5f5;
+        background-color: $color-gray-100;
       }
     }
   }
-}
-
-// Feature icons
-.feature-icon-code {
-  font-size: 40px;
-  color: #1976d2; // primary.main
-}
-
-.feature-icon-design {
-  font-size: 40px;
-  color: #9c27b0; // secondary.main
-}
-
-.feature-icon-speed {
-  font-size: 40px;
-  color: #1976d2; // primary.main
 }

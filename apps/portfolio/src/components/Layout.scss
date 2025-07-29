@@ -1,82 +1,95 @@
-// Layout.scss - Styles for the Layout component
+// Layout.scss - Styles for the Layout component using BEM methodology
+@use '../app/styles/variables' as *;
+@use '../app/styles/mixins' as *;
 
-.layout-container {
-  display: flex;
-  flex-direction: column;
+// Layout Block
+.layout {
+  @include flex-column;
   min-height: 100vh;
 
-  // AppBar and Navigation
-  .layout-appbar {
-    .layout-toolbar {
-      .layout-logo {
-        flex-grow: 1;
-        text-decoration: none;
-        color: inherit;
-        font-weight: 700;
-      }
+  // AppBar Element
+  &__appbar {
+    // Toolbar Element
+    &-toolbar {
+      @include flex-between;
+      padding: 0 $spacing-lg;
+    }
 
-      .desktop-nav {
-        display: flex;
-        gap: 1rem;
-
-        .nav-button {
-          border-radius: 0;
-          transition: all 0.3s ease;
-
-          &.active {
-            font-weight: 600;
-            border-bottom: 2px solid;
-          }
-
-          &:hover {
-            background-color: rgba(25, 118, 210, 0.1);
-          }
-        }
-      }
+    &-logo {
+      flex-grow: 1;
+      text-decoration: none;
+      color: inherit;
+      font-weight: $font-weight-bold;
     }
   }
 
-  // Mobile Drawer
-  .mobile-drawer {
+  // Desktop Navigation Element
+  &__desktop-nav {
+    display: flex;
+    gap: $spacing-sm;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  // Navigation Button Element
+  &__nav-button {
+    @include button-base;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    transition: all $transition-base;
+
+    // Active Modifier
+    &--active {
+      font-weight: $font-weight-semibold;
+      border-bottom: 2px solid $color-accent;
+    }
+
+    &:hover {
+      background-color: rgba($color-accent, 0.1);
+    }
+  }
+
+  // Mobile Drawer Element
+  &__mobile-drawer {
     width: 250px;
 
-    .drawer-header {
+    &-header {
       display: flex;
       justify-content: flex-end;
-      padding: 0.5rem;
+      padding: $spacing-xs;
     }
 
-    .drawer-nav-item {
-      &.active {
-        color: #1976d2; // primary.main
-        background-color: rgba(25, 118, 210, 0.1);
+    &-nav-item {
+      // Active Modifier
+      &--active {
+        color: $color-accent;
+        background-color: rgba($color-accent, 0.1);
       }
     }
   }
 
-  // Main Content
-  .layout-main {
+  // Main Content Element
+  &__main {
     flex-grow: 1;
-    padding: 2rem 0;
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
 
-    @media (max-width: 600px) {
-      padding: 2rem 1rem;
-    }
+    @include container;
 
-    @media (min-width: 600px) {
-      padding: 2rem 1.5rem;
-    }
-
-    @media (min-width: 960px) {
-      padding: 2rem 2rem;
+    @include mobile-only {
+      padding-left: $spacing-sm;
+      padding-right: $spacing-sm;
     }
   }
 
-  // Footer
-  .layout-footer {
-    padding: 1.5rem 1rem;
+  // Footer Element
+  &__footer {
+    padding: $spacing-md $spacing-sm;
     margin-top: auto;
-    background-color: #f5f5f5; // grey[100]
-    text-align: center;
+    background-color: $color-gray-100;
+    @include text-center;
   }
 }

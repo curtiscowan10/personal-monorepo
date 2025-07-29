@@ -36,8 +36,8 @@ const Layout = ({ children }) => {
   };
 
   const drawer = (
-    <Box className="mobile-drawer">
-      <Box className="drawer-header">
+    <Box className="layout__mobile-drawer">
+      <Box className="layout__mobile-drawer-header">
         <IconButton onClick={handleDrawerToggle}>
           <CloseIcon />
         </IconButton>
@@ -49,7 +49,11 @@ const Layout = ({ children }) => {
             component={Link}
             to={item.path}
             onClick={handleDrawerToggle}
-            className={`drawer-nav-item ${location.pathname === item.path ? 'active' : ''}`}
+            className={`layout__mobile-drawer-nav-item ${
+              location.pathname === item.path
+                ? 'layout__mobile-drawer-nav-item--active'
+                : ''
+            }`}
           >
             <ListItemText primary={item.label} />
           </ListItem>
@@ -59,18 +63,18 @@ const Layout = ({ children }) => {
   );
 
   return (
-    <Box className="layout-container">
-      <AppBar position="sticky" className="layout-appbar" elevation={0}>
-        <Toolbar className="layout-toolbar">
+    <Box className="layout">
+      <AppBar position="sticky" className="layout__appbar" elevation={0}>
+        <Toolbar className="layout__appbar-toolbar">
           <Typography
             variant="h6"
             component={Link}
             to="/"
-            className="layout-logo"
+            className="layout__appbar-logo"
           >
             Portfolio
           </Typography>
-          
+
           {isMobile ? (
             <IconButton
               color="inherit"
@@ -81,14 +85,18 @@ const Layout = ({ children }) => {
               <MenuIcon />
             </IconButton>
           ) : (
-            <Box className="desktop-nav">
+            <Box className="layout__desktop-nav">
               {navigationItems.map((item) => (
                 <Button
                   key={item.path}
                   component={Link}
                   to={item.path}
                   color="inherit"
-                  className={`nav-button ${location.pathname === item.path ? 'active' : ''}`}
+                  className={`layout__nav-button ${
+                    location.pathname === item.path
+                      ? 'layout__nav-button--active'
+                      : ''
+                  }`}
                 >
                   {item.label}
                 </Button>
@@ -110,20 +118,14 @@ const Layout = ({ children }) => {
         {drawer}
       </Drawer>
 
-      <Container
-        component="main"
-        maxWidth="lg"
-        className="layout-main"
-      >
+      <Container component="main" maxWidth="lg" className="layout__main">
         {children}
       </Container>
 
-      <Box
-        component="footer"
-        className="layout-footer"
-      >
+      <Box component="footer" className="layout__footer">
         <Typography variant="body2" color="text.secondary">
-          © {new Date().getFullYear()} Portfolio. Built with React, Material-UI, and NX.
+          © {new Date().getFullYear()} Portfolio. Built with React, Material-UI,
+          and NX.
         </Typography>
       </Box>
     </Box>

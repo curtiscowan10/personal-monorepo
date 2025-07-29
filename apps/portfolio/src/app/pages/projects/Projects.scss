@@ -1,104 +1,120 @@
-// Projects.scss - Styles for the Projects component
+// Projects.scss - Styles for the Projects component using BEM methodology
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use 'sass:math';
 
-.projects-container {
-  // Header Section
-  .projects-header {
-    text-align: center;
-    margin-bottom: 3rem;
+// Projects Page Block
+.projects {
+  // Header Element
+  &__header {
+    @include text-center;
+    margin-bottom: $spacing-xl;
+  }
 
-    .projects-subtitle {
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+  &__subtitle {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Featured Section Element
+  &__featured {
+    margin-bottom: $spacing-2xl;
+
+    &-title {
+      margin-bottom: $spacing-lg;
     }
   }
 
-  // Featured Projects Section
-  .featured-section {
-    margin-bottom: 4rem;
-
-    .featured-title {
-      margin-bottom: 2rem;
-    }
+  // Other Projects Element
+  &__other-title {
+    margin-bottom: $spacing-lg;
   }
 
-  // Other Projects Section
-  .other-projects-title {
-    margin-bottom: 2rem;
-  }
+  // Call to Action Element
+  &__cta {
+    margin-top: $spacing-2xl;
+    background: linear-gradient(
+      135deg,
+      $color-gray-100 0%,
+      $color-gray-200 100%
+    );
+    border-radius: $border-radius-md;
 
-  // Call to Action Section
-  .projects-cta {
-    text-align: center;
-    padding: 3rem 0;
-    margin-top: 4rem;
-    background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
-    border-radius: 8px;
+    @include text-center;
+    @include section-spacing;
 
-    .cta-subtitle {
-      margin-bottom: 1.5rem;
+    &-subtitle {
+      margin-bottom: $spacing-md;
     }
   }
 }
 
-// Project Card Styles
+// Project Card Component
 .project-card {
+  @include card;
+  @include card-hover;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
 
-  &.featured {
-    border: 2px solid #1976d2; // primary.main
+  // Featured Modifier
+  &--featured {
+    border: 2px solid $color-accent;
   }
 
-  .project-media {
+  // Media Element
+  &__media {
     height: 200px;
-    background-color: #f5f5f5; // grey.200
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: $color-gray-100;
+    @include flex-center;
 
-    .media-icon {
-      font-size: 60px;
-      color: #bdbdbd; // grey.400
+    &-icon {
+      font-size: 3.75rem;
+      color: $color-gray-300;
     }
   }
 
-  .project-content {
+  // Content Element
+  &__content {
     flex-grow: 1;
-    padding: 1.5rem;
+    @include card-content;
+  }
 
-    .project-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
+  // Header Element
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-xs;
+  }
 
-      .project-title {
-        flex-grow: 1;
-      }
+  &__title {
+    flex-grow: 1;
+  }
 
-      .featured-chip {
-        margin-left: 0.5rem;
-      }
+  &__featured-chip {
+    margin-left: $spacing-xs;
+  }
+
+  // Description Element
+  &__description {
+    margin-bottom: $spacing-sm;
+  }
+
+  // Tech Stack Element
+  &__tech-stack {
+    margin-bottom: $spacing-sm;
+    display: flex;
+    flex-wrap: wrap;
+    gap: math.div($spacing-xs, 2);
+
+    &-chip {
+      margin-bottom: math.div($spacing-xs, 2);
     }
+  }
 
-    .project-description {
-      margin-bottom: 1rem;
-    }
-
-    .tech-stack {
-      margin-bottom: 1rem;
-      gap: 0.25rem;
-
-      .tech-chip {
-        margin-bottom: 0.25rem;
-      }
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: auto;
-    }
+  // Actions Element
+  &__actions {
+    display: flex;
+    gap: $spacing-xs;
+    margin-top: auto;
   }
 }

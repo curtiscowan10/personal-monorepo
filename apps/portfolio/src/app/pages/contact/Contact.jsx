@@ -25,9 +25,9 @@ const Contact = ({
   onCloseAlert,
 }) => {
   return (
-    <Container maxWidth="lg" className="contact-container">
+    <Container maxWidth="lg" className="contact">
       {/* Header Section */}
-      <Box className="contact-header">
+      <Box className="contact__header">
         <Typography
           variant="h2"
           component="h1"
@@ -36,7 +36,7 @@ const Contact = ({
         >
           Get In Touch
         </Typography>
-        <Typography variant="h5" className="contact-subtitle">
+        <Typography variant="h5" className="contact__subtitle">
           I'd love to hear from you! Whether you have a project in mind, want to
           collaborate, or just want to say hello, feel free to reach out.
         </Typography>
@@ -45,9 +45,13 @@ const Contact = ({
       <Grid container spacing={4}>
         {/* Contact Form */}
         <Grid item xs={12} md={8}>
-          <Card className="contact-form-card">
-            <CardContent className="contact-form-content">
-              <Typography variant="h4" gutterBottom className="form-title">
+          <Card className="contact__form">
+            <CardContent className="contact__form-content">
+              <Typography
+                variant="h4"
+                gutterBottom
+                className="contact__form-title"
+              >
                 Send Me a Message
               </Typography>
 
@@ -106,7 +110,7 @@ const Contact = ({
                       variant="contained"
                       size="large"
                       endIcon={<SendIcon />}
-                      className="submit-button"
+                      className="contact__form-submit"
                     >
                       Send Message
                     </Button>
@@ -119,24 +123,30 @@ const Contact = ({
 
         {/* Contact Information */}
         <Grid item xs={12} md={4}>
-          <Box className="contact-sidebar">
+          <Box className="contact__sidebar">
             {/* Contact Details */}
-            <Card className="contact-info-card">
-              <CardContent className="contact-info-content">
-                <Typography variant="h5" gutterBottom className="info-title">
+            <Card className="contact__info-card">
+              <CardContent className="contact__info-card-content">
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  className="contact__info-card-title"
+                >
                   Contact Information
                 </Typography>
 
                 {contactInfo.map((info, index) => (
                   <Box
                     key={index}
-                    className={`contact-item ${info.link ? 'clickable' : ''}`}
+                    className={`contact__contact-item ${
+                      info.link ? 'contact__contact-item--clickable' : ''
+                    }`}
                     {...(info.link && {
                       component: 'a',
                       href: info.link,
                     })}
                   >
-                    <Box className="contact-icon">{info.icon}</Box>
+                    <Box className="contact__contact-icon">{info.icon}</Box>
                     <Box>
                       <Typography variant="subtitle2" color="text.secondary">
                         {info.title}
@@ -149,13 +159,17 @@ const Contact = ({
             </Card>
 
             {/* Social Links */}
-            <Card className="social-links-card">
-              <CardContent className="social-content">
-                <Typography variant="h5" gutterBottom className="social-title">
+            <Card className="contact__social-card">
+              <CardContent className="contact__social-card-content">
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  className="contact__social-card-title"
+                >
                   Follow Me
                 </Typography>
 
-                <Box className="social-buttons">
+                <Box className="contact__social-buttons">
                   {socialLinks.map((social, index) => (
                     <IconButton
                       key={index}
@@ -163,7 +177,7 @@ const Contact = ({
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`social-button ${social.name.toLowerCase()}`}
+                      className={`contact__social-button contact__social-button--${social.name.toLowerCase()}`}
                     >
                       {social.icon}
                     </IconButton>
@@ -173,12 +187,12 @@ const Contact = ({
             </Card>
 
             {/* Availability */}
-            <Card className="availability-card">
-              <CardContent className="availability-content">
+            <Card className="contact__availability-card">
+              <CardContent className="contact__availability-card-content">
                 <Typography
                   variant="h5"
                   gutterBottom
-                  className="availability-title"
+                  className="contact__availability-card-title"
                 >
                   Availability
                 </Typography>
