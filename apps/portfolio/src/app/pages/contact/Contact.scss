@@ -7,6 +7,7 @@
   // Header Element
   &__header {
     @include text-center;
+
     margin-bottom: $spacing-xl;
   }
 
@@ -36,6 +37,7 @@
   // Sidebar Element
   &__sidebar {
     @include flex-column;
+
     gap: $spacing-md;
   }
 

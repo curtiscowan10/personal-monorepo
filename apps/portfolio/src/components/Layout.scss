@@ -5,6 +5,7 @@
 // Layout Block
 .layout {
   @include flex-column;
+
   min-height: 100vh;
 
   // AppBar Element
@@ -12,6 +13,7 @@
     // Toolbar Element
     &-toolbar {
       @include flex-between;
+
       padding: 0 $spacing-lg;
     }
 
@@ -36,6 +38,7 @@
   // Navigation Button Element
   &__nav-button {
     @include button-base;
+
     border-radius: 0;
     background: transparent;
     color: inherit;

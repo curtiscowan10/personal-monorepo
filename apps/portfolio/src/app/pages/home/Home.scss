@@ -51,6 +51,7 @@
 
     &-title {
       @include text-center;
+
       margin-bottom: $spacing-xl;
     }
   }
@@ -59,6 +60,7 @@
   &__feature-card {
     @include card;
     @include card-hover;
+
     height: 100%;
     @include text-center;
 
@@ -105,6 +107,7 @@
 
     &-button {
       @include button-base;
+
       background-color: $color-white;
       color: $color-accent;
 

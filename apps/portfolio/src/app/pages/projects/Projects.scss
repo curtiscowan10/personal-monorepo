@@ -8,6 +8,7 @@
   // Header Element
   &__header {
     @include text-center;
+
     margin-bottom: $spacing-xl;
   }
 
@@ -54,6 +55,7 @@
 .project-card {
   @include card;
   @include card-hover;
+
   height: 100%;
   @include flex-column;
 
@@ -83,6 +85,7 @@
   // Header Element
   &__header {
     @include flex-between;
+
     margin-bottom: $spacing-xs;
   }
 

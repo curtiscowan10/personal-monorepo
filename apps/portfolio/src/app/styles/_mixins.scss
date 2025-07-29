@@ -123,6 +123,7 @@
 
 @mixin button-primary {
   @include button-base;
+
   background-color: $color-secondary;
   color: $color-white;
 
@@ -133,6 +134,7 @@
 
 @mixin button-secondary {
   @include button-base;
+
   background-color: transparent;
   color: $color-secondary;
   border: 2px solid $color-secondary;
@@ -145,11 +147,12 @@
 
 @mixin button-outline {
   @include button-base;
+
   background-color: transparent;
-  border: 2px solid currentColor;
+  border: 2px solid currentcolor;
 
   &:hover:not(:disabled) {
-    background-color: currentColor;
+    background-color: currentcolor;
     color: $color-white;
   }
 }
@@ -249,6 +252,7 @@
 // Social Button Mixins
 @mixin social-button($color) {
   @include button-outline;
+
   color: $color;
   border-color: $color;
 
