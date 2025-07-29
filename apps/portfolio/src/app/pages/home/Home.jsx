@@ -11,47 +11,17 @@ import {
   Chip,
   Stack,
 } from '@mui/material';
-import {
-  Brush as DesignIcon,
-  Code as CodeIcon,
-  Speed as SpeedIcon,
-  ArrowForward as ArrowForwardIcon,
-} from '@mui/icons-material';
+import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import './Home.scss';
 
-const Home = () => {
-  const skills = [
-    'React', 'JavaScript', 'Node.js', 'Material-UI', 
-    'SCSS', 'Vite', 'NX', 'Git', 'Responsive Design'
-  ];
-
-  const features = [
-    {
-      icon: <CodeIcon className="feature-icon-code" />,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable, and well-documented code following best practices.',
-    },
-    {
-      icon: <DesignIcon className="feature-icon-design" />,
-      title: 'Modern Design',
-      description: 'Creating beautiful, intuitive user interfaces with attention to detail and user experience.',
-    },
-    {
-      icon: <SpeedIcon className="feature-icon-speed" />,
-      title: 'Performance',
-      description: 'Optimizing applications for speed, accessibility, and cross-browser compatibility.',
-    },
-  ];
-
+const Home = ({ skills, features }) => {
   return (
     <Container maxWidth="lg" className="home-container">
       {/* Hero Section */}
       <Box className="hero-section">
-        <Avatar className="hero-avatar">
-          P
-        </Avatar>
-        
+        <Avatar className="hero-avatar">P</Avatar>
+
         <Typography
           variant="h2"
           component="h1"
@@ -60,13 +30,10 @@ const Home = () => {
         >
           Welcome to My Portfolio
         </Typography>
-        
-        <Typography
-          variant="h5"
-          className="hero-subtitle"
-        >
-          Full-Stack Developer passionate about creating exceptional web experiences
-          with modern technologies and clean, efficient code.
+
+        <Typography variant="h5" className="hero-subtitle">
+          Full-Stack Developer passionate about creating exceptional web
+          experiences with modern technologies and clean, efficient code.
         </Typography>
 
         <Stack
@@ -136,9 +103,7 @@ const Home = () => {
             <Grid item xs={12} md={4} key={index}>
               <Card className="feature-card">
                 <CardContent>
-                  <Box className="feature-icon">
-                    {feature.icon}
-                  </Box>
+                  <Box className="feature-icon">{feature.icon}</Box>
                   <Typography variant="h5" component="h3" gutterBottom>
                     {feature.title}
                   </Typography>
