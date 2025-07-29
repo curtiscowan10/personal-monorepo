@@ -15,7 +15,7 @@ export default defineConfig(() => ({
     host: 'localhost',
   },
   plugins: [react(), nxViteTsPaths()],
-  
+
   build: {
     outDir: '../../dist/apps/portfolio',
     emptyOutDir: true,
@@ -33,6 +33,28 @@ export default defineConfig(() => ({
     coverage: {
       reportsDirectory: '../../coverage/apps/portfolio',
       provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: [
+        'node_modules/',
+        'dist/',
+        'coverage/',
+        '**/*.d.ts',
+        '**/*.config.js',
+        '**/*.config.ts',
+      ],
+      thresholds: {
+        global: {
+          branches: 100,
+          functions: 100,
+          lines: 100,
+          statements: 100,
+        },
+        // Per-file thresholds
+        perFile: true,
+      },
+      // Fail if coverage is below thresholds
+      skipFull: false,
+      all: true,
     },
   },
 }));

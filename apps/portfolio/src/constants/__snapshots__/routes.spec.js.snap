@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`routes constants > ROUTE_CONFIG > should match snapshot 1`] = `
+{
+  "ROUTES": {
+    "ABOUT": "/about",
+    "CONTACT": "/contact",
+    "HOME": "/",
+    "PROJECTS": "/projects",
+  },
+  "ROUTE_CONFIG": {
+    "/": {
+      "name": "Home",
+      "path": "/",
+      "title": "Home",
+    },
+    "/about": {
+      "name": "About",
+      "path": "/about",
+      "title": "About Me",
+    },
+    "/contact": {
+      "name": "Contact",
+      "path": "/contact",
+      "title": "Contact Me",
+    },
+    "/projects": {
+      "name": "Projects",
+      "path": "/projects",
+      "title": "My Projects",
+    },
+  },
+}
+`;
