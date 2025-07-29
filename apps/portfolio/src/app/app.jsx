@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import { ROUTES } from './constants/routes';
 import '../styles/theme-overrides.scss';
 
 export function App() {
@@ -17,10 +18,10 @@ export function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.PROJECTS} element={<Projects />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
           </Routes>
         </Layout>
       </Router>
